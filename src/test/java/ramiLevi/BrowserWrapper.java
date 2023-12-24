@@ -7,7 +7,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 public class BrowserWrapper {
-    private static final String webDriverPath = "C:\\Users\\saeed\\IdeaProjects\\RamiLevyExamplr\\chromedriver.exe";
+    private static final String webDriverPath = "C:\\Users\\SalehZarora\\Desktop\\Github\\rami-levy-project\\chromedriver.exe";
     private PageBase currentPage;
     private WebDriver driver;
     public BrowserWrapper() {
