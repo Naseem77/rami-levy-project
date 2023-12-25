@@ -1,6 +1,5 @@
 package steps;
 
-import io.cucumber.core.gherkin.Step;
 import io.cucumber.java.*;
 
 public class Hooks {

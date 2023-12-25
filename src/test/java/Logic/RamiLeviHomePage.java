@@ -1,5 +1,6 @@
-package ramiLevi;
+package Logic;
 
+import Infra.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class RamiLeviHomePage  extends PageBase{
+public class RamiLeviHomePage  extends PageBase {
 
     private final String LOGIN_BUTTON = "//div[@id='login-user']";
     private final String USER_NAME_LABEL = "//div[@id=\"login-user\"]";

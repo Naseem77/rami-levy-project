@@ -1,5 +1,6 @@
-package ramiLevi;
+package Logic;
 
+import Infra.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-public class FastBuying extends PageBase{
+public class FastBuying extends PageBase {
     private static final String SEARCH_INPUT = "list-product";
     private static final String CONTINUE_BUTTON ="//div[@aria-label=\"המשך\"]";
     private static final String ADDING_ITEM ="(//div[@class='d-flex flex-wrap justify-content-between p-1']//div[@class='plus-minus position-absolute']//button)[1]";
