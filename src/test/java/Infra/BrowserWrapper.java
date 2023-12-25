@@ -1,4 +1,4 @@
-package ramiLevi;
+package Infra;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,6 +7,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 public class BrowserWrapper {
+    //dfg
     private static final String webDriverPath = "chromedriver.exe";
     private PageBase currentPage;
     private WebDriver driver;
@@ -46,5 +47,7 @@ public class BrowserWrapper {
     public <T extends PageBase> T getCurrentPage(){
         return (T)currentPage;
     }
-
+public WebDriver GetDriver(){
+     return this.driver;
+}
 }

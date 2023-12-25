@@ -1,4 +1,4 @@
-package ramiLevi;
+package Logic;
 
 import java.util.HashMap;
 
