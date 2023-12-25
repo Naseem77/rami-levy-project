@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RamiLeviSteps {
     private TestContext context;
-//    saleh zarora
+
     public RamiLeviSteps(TestContext context) {
         this.context = context;
     }
@@ -25,7 +25,7 @@ public class RamiLeviSteps {
     }
 
     @When("On login popup - I login with user '{}' and password '{}'")
-    public void iLoginWithUserTzahiTzahiComAndPasswordAa(String user, String password) {
+    public void iLoginWithUserAndPassword(String user, String password) {
         BrowserWrapper browserWrapper = context.get("BrowserWrapper");
         LoginPage page = browserWrapper.getCurrentPage();
         page.login(user, password);
@@ -41,7 +41,7 @@ public class RamiLeviSteps {
     }
 
     @Then("On Rami Levi home page - '{}'")
-    public void onRamiLeviHomePageTzahi(String name) {
+    public void onRamiLeviHomePage(String name) {
         BrowserWrapper browserWrapper = context.get("BrowserWrapper");
         RamiLeviHomePage homePage = browserWrapper.getCurrentPage();
         String currentText = homePage.getLoginUserText();

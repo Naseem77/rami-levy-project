@@ -7,12 +7,13 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 public class BrowserWrapper {
-    private static final String webDriverPath = "C:\\Users\\SalehZarora\\Desktop\\Github\\rami-levy-project\\chromedriver.exe";
+    private static final String webDriverPath = "chromedriver.exe";
     private PageBase currentPage;
     private WebDriver driver;
     public BrowserWrapper() {
         System.setProperty("webdriver.chrome.driver", webDriverPath);
          driver = new ChromeDriver();
+         driver.manage().window().maximize();
     }
     public <T extends PageBase> T createPage(Class<T> pageType){
         return createPage(pageType, null);

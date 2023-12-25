@@ -3,6 +3,8 @@ package ramiLevi;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RamiLeviHomePage  extends PageBase{
 
@@ -21,7 +23,8 @@ public class RamiLeviHomePage  extends PageBase{
     }
 
     public String getLoginUserText(){
-        this.userNameLabel = this.driver.findElement(By.xpath(USER_NAME_LABEL));
-       return this.userNameLabel.getText();
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        this.userNameLabel = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(USER_NAME_LABEL)));
+        return this.userNameLabel.getText();
     }
 }
