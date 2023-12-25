@@ -1,4 +1,4 @@
-package ramiLevi;
+package Infra;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,12 +9,19 @@ import java.lang.reflect.InvocationTargetException;
 public class BrowserWrapper {
     private static final String webDriverPath = "chromedriver.exe";
     private PageBase currentPage;
+
+
     private WebDriver driver;
     public BrowserWrapper() {
         System.setProperty("webdriver.chrome.driver", webDriverPath);
          driver = new ChromeDriver();
          driver.manage().window().maximize();
     }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     public <T extends PageBase> T createPage(Class<T> pageType){
         return createPage(pageType, null);
     }
