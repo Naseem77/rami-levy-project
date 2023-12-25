@@ -1,8 +1,10 @@
 package steps;
 
+import Infra.BrowserWrapper;
+import Infra.TestContext;
 import io.cucumber.java.en.And;
 import org.junit.Assert;
-import ramiLevi.*;
+import Logic.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
