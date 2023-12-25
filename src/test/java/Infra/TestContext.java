@@ -1,4 +1,4 @@
-package Logic;
+package Infra;
 
 import java.util.HashMap;
 
