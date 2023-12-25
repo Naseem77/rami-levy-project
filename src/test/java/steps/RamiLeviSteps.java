@@ -1,12 +1,11 @@
 package steps;
 
-import ramiLevi.TestContext;
+import io.cucumber.java.en.And;
+import org.junit.Assert;
+import ramiLevi.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import ramiLevi.BrowserWrapper;
-import ramiLevi.LoginPage;
-import ramiLevi.RamiLeviHomePage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -57,4 +56,88 @@ public class RamiLeviSteps {
         }
         assertEquals(name, currentText);
     }
+
+
+    //SearchBar
+
+    @Given("I have navigated to Rami Levi home page")
+    public void iHaveNavigatedToRamiLeviHomePage() {
+        BrowserWrapper browserWrapper = new BrowserWrapper();
+        context.put("BrowserWrapper", browserWrapper);
+        SearchBar searchBar = browserWrapper.createPage(SearchBar.class, "http://rami-levy.co.il");
+    }
+
+    @When("I input with in search {string}")
+    public void iInputWithInSearch(String item) {
+        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+        context.put("searchItem", item);
+        SearchBar page = new SearchBar(browserWrapper.getDriver());
+        page.searchInput(item);
+    }
+
+    @And("I click on search button")
+    public void iClickOnSearchButton() {
+        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+        SearchBar page = new SearchBar(browserWrapper.getDriver());
+        page.searchButton();
+    }
+
+    @Then("I should be navigated to the correct page")
+    public void iShouldBeNavigatedToTheCorrectPage() {
+        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+        String searchItem = context.get("searchItem");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        String currentUrl = browserWrapper.getDriver().getCurrentUrl();
+        Assert.assertEquals("https://www.rami-levy.co.il/he/online/search?q=" + searchItem,currentUrl);
+    }
+
+    // FAST BUYING
+
+    @Given("I have navigated to Rami Levi home pagea")
+    public void iHaveNavigatedToRamiLeviHomePagea() {
+        BrowserWrapper browserWrapper = new BrowserWrapper();
+        context.put("BrowserWrapper", browserWrapper);
+        RamiLeviHomePage home = browserWrapper.createPage(RamiLeviHomePage.class, "http://rami-levy.co.il");
+    }
+    @When("I click on Fast Buying button")
+    public void iClickOnFastBuyingButton() {
+        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+        RamiLeviHomePage page = new RamiLeviHomePage(browserWrapper.getDriver());
+        page.clickFastBuy();
+    }
+
+    @And("I enter input {string}")
+    public void iEnterInputBambaAndClickOnContinue(String searchItem) {
+        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+        FastBuying page = new FastBuying(browserWrapper.getDriver());
+        page.FastBuy(searchItem);;
+    }
+
+    @And("I click on continue")
+    public void iClickOnContinue() {
+        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+        FastBuying page = new FastBuying(browserWrapper.getDriver());
+        page.continueButton();
+    }
+
+    @And("I add an item to cart and click on finish")
+    public void iAddAnItemToCartAndClickOnFinish() {
+        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+        FastBuying page = new FastBuying(browserWrapper.getDriver());
+        page.FinishingFastBuyingProcess();
+        browserWrapper.createPage(RamiLeviHomePage.class);
+    }
+
+
+    @Then("I need to view item on cart")
+    public void iNeedToViewItemOnCart() {
+        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+        RamiLeviHomePage page = new RamiLeviHomePage(browserWrapper.getDriver());
+        Assert.assertEquals(page.checkCartLength(),1);
+    }
+
 }
