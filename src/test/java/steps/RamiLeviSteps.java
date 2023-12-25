@@ -57,4 +57,16 @@ public class RamiLeviSteps {
         }
         assertEquals(name, currentText);
     }
+
+
+
+    // AddressAdd
+
+
+
+
+
+    //AddressRemove
+
+
 }
