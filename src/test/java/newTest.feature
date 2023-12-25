@@ -1,4 +1,5 @@
 Feature: Rami Levi feature
+=======
   Scenario: Login
     Given I have navigated to Rami Levi
     And On Rami Levi home page - I click login
@@ -18,3 +19,8 @@ Feature: Rami Levi feature
       And I click on continue
       And I add an item to cart and click on finish
       Then I need to view item on cart
+      
+      Scenario: first
+     When navigated to the profile and fill the address
+     Then i should view the address
+
