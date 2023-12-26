@@ -7,6 +7,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 public class BrowserWrapper {
+    //dfg
     private static final String webDriverPath = "chromedriver.exe";
     private PageBase currentPage;
     private WebDriver driver;
@@ -51,5 +52,7 @@ public class BrowserWrapper {
     public <T extends PageBase> T getCurrentPage(){
         return (T)currentPage;
     }
-
+public WebDriver GetDriver(){
+     return this.driver;
+}
 }

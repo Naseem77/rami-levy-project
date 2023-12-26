@@ -8,6 +8,14 @@ import Logic.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -147,7 +155,7 @@ public class RamiLeviSteps {
         RamiLeviHomePage page = new RamiLeviHomePage(browserWrapper.getDriver());
         Assert.assertEquals(page.checkCartLength(),1);
     }
-  
+
   @Given("i have navigated the home page")
     public void IHaveNavigatedTheHomePage(){
         BrowserWrapper browserWrapper = new BrowserWrapper();
@@ -173,6 +181,57 @@ public class RamiLeviSteps {
         BrowserWrapper browserWrapper = context.get("BrowserWrapper");
         AddressEdit address = new AddressEdit(browserWrapper.getDriver());
         Assert.assertTrue(address.CheckAddress());
+    }
+
+    @When("I Click AllDiscounts Button")
+    public void iClickAllDiscountsButton() {
+        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+        AllDiscountsComponent alldisconts = new AllDiscountsComponent(browserWrapper.GetDriver());
+        alldisconts.ClickAllDiscountButton();
+        Set<String> windowHandles = browserWrapper.GetDriver().getWindowHandles();
+        List<String> windowHandlesList = new ArrayList<>(windowHandles);
+        String secondTab = windowHandlesList.get(1);
+        browserWrapper.GetDriver().switchTo().window(secondTab);
+        System.out.println("WE GOT THIS"  + browserWrapper.GetDriver().getCurrentUrl());
+    }
+    @Then("Validate that I navigate to the correct page")
+    public void iClickAllDiscountsButtonAndValidateThatINavigateToTheCorrectPageAnd() {
+        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+        Assertions.assertEquals(browserWrapper.GetDriver().getCurrentUrl(),"https://www.rami-levy.co.il/he/online/feed");
+    }
+    @When("Adding one item")
+    public void addingOneItem() {
+        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+
+        WebElement elementToHover = browserWrapper.GetDriver().findElement(By.xpath("//*[@id=\"products-gallery-swiper\"]/div/div[4]"));
+
+        Actions actions = new Actions(browserWrapper.GetDriver());
+
+        actions.moveToElement(elementToHover).perform();
+        Item item=new Item(browserWrapper.GetDriver());
+        item.AddItem();
+
+    }
+
+
+
+    @And("Removing Item from the cart")
+    public void removingItemFromTheCart() {
+        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+        WebElement elementToHover = browserWrapper.GetDriver().findElement(By.xpath("//*[@id=\"market\"]/ul/li[1]"));
+
+        Actions actions = new Actions(browserWrapper.GetDriver());
+
+        actions.moveToElement(elementToHover).perform();
+        Item item=new Item(browserWrapper.GetDriver());
+        item.RemoveItem();
+    }
+
+    @Then("check that the cart doesn't contain it")
+    public void checkThatTheCartDoesnTContainIt() {
+        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+        Item item=new Item(browserWrapper.GetDriver());
+        Assertions.assertEquals(0,item.GetItemsInTheCart());
     }
 
 
