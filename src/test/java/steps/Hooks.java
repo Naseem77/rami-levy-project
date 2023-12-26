@@ -1,5 +1,6 @@
 package steps;
 
+import Infra.BrowserWrapper;
 import io.cucumber.java.*;
 
 public class Hooks {
@@ -17,32 +18,25 @@ public class Hooks {
     }
 
     @Before
-    public void before(Scenario scenario){
+    public void before(Scenario scenario) throws InterruptedException {
         System.out.println("*** Before " + scenario.getName());
 //        loginToRamiLevi();
     }
 
 
-    private void loginToRamiLevi() {
+    private void loginToRamiLevi() throws InterruptedException {
         stepDefinitions.iHaveNavigatedToRamiLevi();
         stepDefinitions.onRamiLeviHomePageIClickLogin();
-        stepDefinitions.iLoginWithUserAndPassword("salehzarora.z.007@gmail.com", "saleh12345");
-        stepDefinitions.onRamiLeviHomePage("סלאח");
+        stepDefinitions.iLoginWithUserAndPassword("saeedyasen41@gmail.com", "Aש123123");
+        stepDefinitions.onRamiLeviHomePage("סעיד");
     }
 
 
     @BeforeStep
     public void beforeStep(){
-
-
     }
     @After
-    public void afterEach(Scenario scenario){
-        System.out.println("*** After " + scenario.getName());
-        System.out.println(scenario.getStatus());
-        if(!scenario.getStatus().equals(Status.PASSED)){
-            //TAKE SCREENSHOT
-        }
+    public void afterEach(){
 
     }
 

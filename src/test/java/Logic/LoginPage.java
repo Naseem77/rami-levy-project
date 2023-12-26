@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class LoginPage extends PageBase {
     private static final String SUBMIT_BUTTON = "//button[@aria-label='כניסה']";
     private By userInput = By.id("email");
@@ -16,7 +18,7 @@ public class LoginPage extends PageBase {
         super(driver);
     }
 
-    public void login(String user, String password) {
+    public void login(String user, String password){
         driver.findElement(userInput).sendKeys(user);
         driver.findElement(passwordInput).sendKeys(password);
         WebDriverWait wait = new WebDriverWait(driver, 10);

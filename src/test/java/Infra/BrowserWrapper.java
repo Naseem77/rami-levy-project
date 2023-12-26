@@ -21,6 +21,7 @@ public class BrowserWrapper {
         return driver;
     }
 
+
     public <T extends PageBase> T createPage(Class<T> pageType){
         return createPage(pageType, null);
     }
@@ -45,14 +46,14 @@ public class BrowserWrapper {
         }
     }
 
-    public void close(){
-        driver.close();
-    }
-
     public <T extends PageBase> T getCurrentPage(){
         return (T)currentPage;
     }
-public WebDriver GetDriver(){
-     return this.driver;
-}
+    public WebDriver GetDriver(){
+        return this.driver;
+    }
+    public void refreshPage() {
+        this.driver.navigate().refresh();
+    }
+
 }
