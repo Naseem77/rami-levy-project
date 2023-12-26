@@ -19,12 +19,12 @@ Feature: Rami Levi feature
       And I add an item to cart and click on finish
       Then I need to view item on cart
 
-  Scenario: first
+  Scenario: Add Address
      When navigated to the profile and fill the address
      Then i should view the address
 
-  Scenario: AllDiscounts Navigate
-    Given I have navigated to Rami Levi Home Page
+  Scenario: AllDiscounts NavigatePage
+    Given I have navigated to Rami Levi home page
     When I Click AllDiscounts Button
     Then Validate that I navigate to the correct page
 

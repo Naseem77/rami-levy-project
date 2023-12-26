@@ -20,15 +20,15 @@ public class Hooks {
     @Before
     public void before(Scenario scenario){
         System.out.println("*** Before " + scenario.getName());
-        loginToRamiLevi();
+//        loginToRamiLevi();
     }
 
 
     private void loginToRamiLevi() {
         stepDefinitions.iHaveNavigatedToRamiLevi();
         stepDefinitions.onRamiLeviHomePageIClickLogin();
-        stepDefinitions.iLoginWithUserAndPassword("salehzarora.z.9@gmail.com", "saleh12345");
-        stepDefinitions.onRamiLeviHomePage("ס2");
+        stepDefinitions.iLoginWithUserAndPassword("naseem-ali@hotmail.com", "naseem12345");
+        stepDefinitions.onRamiLeviHomePage("naseem");
     }
 
 
