@@ -33,9 +33,13 @@ Feature: Rami Levi feature
     When I Click AllDiscounts Button
     Then Validate that I navigate to the correct page
 
-  Scenario: Add and Remove Item
-    Given I have navigated to Rami Levi
-    When Adding one item
+  Scenario: Add item via API and Remove Item via UI
+    When I add one item to the cart via API
     And Removing Item from the cart
     Then validate cart is empty
+
+  Scenario: Add item via UI and remove all via API
+    When I add one item to the cart via UI
+    And Remove item from the cart with API
+    Then validate cart empty
 
