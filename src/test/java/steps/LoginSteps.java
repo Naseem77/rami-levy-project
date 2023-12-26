@@ -24,7 +24,7 @@ public class LoginSteps {
     }
 
     @When("On login popup - I login with user '{}' and password '{}'")
-    public void iLoginWithUserAndPassword(String user, String password) {
+    public void iLoginWithUserAndPassword(String user, String password) throws InterruptedException {
         BrowserWrapper browserWrapper = context.get("BrowserWrapper");
         LoginPage page = browserWrapper.getCurrentPage();
         page.login(user, password);
