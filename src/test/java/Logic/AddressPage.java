@@ -24,6 +24,7 @@ public class AddressPage extends PageBase {
     private  final  String CLICK_STREET = "//*[@id=\"list-area-street-0\"]";
 
     private  final  String ADDRESS_EXISTS = "//*[@id=\"main-content\"]//label";
+    private  final  String ADDRESSES_IS_EMPTY ="//*[@id=\"main-content\"]/div/div[2]/div/div/div/div";
 
     private final String HOVER = "//*[@id=\"main-content\"]//div[@class=\"focus-item mb-3 address-item mx-1\"]";
 
@@ -120,7 +121,7 @@ public class AddressPage extends PageBase {
     {
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        this.addressExists = driver.findElement(By.xpath(ADDRESS_EXISTS));
+        this.addressExists = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ADDRESS_EXISTS)));
 
 
 
@@ -129,7 +130,19 @@ public class AddressPage extends PageBase {
 
 
     }
+    public boolean CheckIftheAdressersIsEmpty()
+    {
 
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        this.addressExists = driver.findElement(By.xpath(ADDRESSES_IS_EMPTY));
+
+
+
+        return this.addressExists.isDisplayed();
+
+
+
+    }
     public void addressHoverAndRemove()
     {
 

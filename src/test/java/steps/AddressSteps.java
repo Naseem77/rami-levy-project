@@ -70,9 +70,8 @@ public class AddressSteps {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("after removing"+addressPage.CheckAddress());
 
-        //Assert.assertFalse(addressPage.CheckAddress());
+        Assert.assertTrue(addressPage.CheckIftheAdressersIsEmpty());
 
     }
 
