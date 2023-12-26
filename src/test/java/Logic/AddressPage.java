@@ -4,8 +4,11 @@ import Infra.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 public class AddressPage extends PageBase {
 
@@ -21,6 +24,13 @@ public class AddressPage extends PageBase {
     private  final  String CLICK_STREET = "//*[@id=\"list-area-street-0\"]";
 
     private  final  String ADDRESS_EXISTS = "//*[@id=\"main-content\"]//label";
+
+    private final String HOVER = "//*[@id=\"main-content\"]//div[@class=\"focus-item mb-3 address-item mx-1\"]";
+
+    private final String DELETE_ADDRESS_BUTTON = "//*[@id=\"main-content\"]/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/label/div[2]/div";
+
+    private final String CONFIRM_DELETE_ADDRESS_BUTTON = "//*[@id=\"bv-payments___BV_modal_body_\"]/div[2]/div[2]/button[2]";
+
 
     private By cityInput = By.id("addresses-a-city");
     private By streetInput = By.id("addresses-a-street");
@@ -38,6 +48,12 @@ public class AddressPage extends PageBase {
     private  WebElement clickCity ;
     private WebElement clickStreet;
     private WebElement addressExists;
+
+    private WebElement hover ;
+
+    private WebElement deleteAddressButton;
+
+    private WebElement confirmDeleteAddressButton;
 
     public AddressPage(WebDriver driver)
     {
@@ -104,7 +120,7 @@ public class AddressPage extends PageBase {
     {
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        this.addressExists = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ADDRESS_EXISTS)));
+        this.addressExists = driver.findElement(By.xpath(ADDRESS_EXISTS));
 
 
 
@@ -114,9 +130,25 @@ public class AddressPage extends PageBase {
 
     }
 
+    public void addressHoverAndRemove()
+    {
+
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+
+        this.hover = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(HOVER)));
+        Actions actions = new Actions(this.driver);
+        actions.moveToElement(hover).perform();
+
+
+        this.deleteAddressButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DELETE_ADDRESS_BUTTON)));
+        deleteAddressButton.click();
+
+        this.confirmDeleteAddressButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(CONFIRM_DELETE_ADDRESS_BUTTON)));
+        confirmDeleteAddressButton.click();
 
 
 
+    }
 
 
 }

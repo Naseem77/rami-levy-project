@@ -17,19 +17,23 @@ public class Hooks {
     }
 
     @Before
-    public void before(Scenario scenario){
+    public void before(Scenario scenario) throws InterruptedException {
         System.out.println("*** Before " + scenario.getName());
-//        loginToRamiLevi();
+            loginToRamiLevi();
     }
 
 
-    private void loginToRamiLevi() {
+    private void loginToRamiLevi() throws InterruptedException {
         stepDefinitions.iHaveNavigatedToRamiLevi();
         stepDefinitions.onRamiLeviHomePageIClickLogin();
-        stepDefinitions.iLoginWithUserAndPassword("salehzarora.z.007@gmail.com", "saleh12345");
-        stepDefinitions.onRamiLeviHomePage("סלאח");
-    }
+//        stepDefinitions.iLoginWithUserAndPassword("salehzarora.z.9@gmail.com", "saleh12345");
+//        stepDefinitions.onRamiLeviHomePage("ס2");
+//          stepDefinitions.iLoginWithUserAndPassword("salehzarora.z.007@gmail.com", "saleh12345");
+//         stepDefinitions.onRamiLeviHomePage("סאלח");
+        stepDefinitions.iLoginWithUserAndPassword("saeedyasen41@gmail.com", "Aש123123");
+        stepDefinitions.onRamiLeviHomePage("סעיד");
 
+    }
 
     @BeforeStep
     public void beforeStep(){
