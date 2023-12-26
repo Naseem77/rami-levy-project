@@ -23,6 +23,11 @@ Feature: Rami Levi feature
      When navigated to the profile and fill the address
      Then i should view the address
 
+    Scenario: Remove Address
+      Given i navigated to the profile address page
+      When  i click on the delete button and confirm
+      Then  Validate that address deleted
+
   Scenario: AllDiscounts NavigatePage
     Given I have navigated to Rami Levi
     When I Click AllDiscounts Button

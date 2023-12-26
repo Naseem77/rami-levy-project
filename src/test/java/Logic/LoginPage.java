@@ -18,11 +18,12 @@ public class LoginPage extends PageBase {
         super(driver);
     }
 
-    public void login(String user, String password){
+    public void login(String user, String password) throws InterruptedException {
         driver.findElement(userInput).sendKeys(user);
         driver.findElement(passwordInput).sendKeys(password);
         WebDriverWait wait = new WebDriverWait(driver, 10);
         this.submit = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(SUBMIT_BUTTON)));
+        TimeUnit.MILLISECONDS.sleep(100);
         submit.click();
     }
 
