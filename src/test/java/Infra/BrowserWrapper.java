@@ -16,6 +16,11 @@ public class BrowserWrapper {
          driver = new ChromeDriver();
          driver.manage().window().maximize();
     }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     public <T extends PageBase> T createPage(Class<T> pageType){
         return createPage(pageType, null);
     }

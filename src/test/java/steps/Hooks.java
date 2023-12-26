@@ -1,8 +1,17 @@
-package Test;
+package steps;
 
 import io.cucumber.java.*;
+import steps.RamiLeviSteps;
 
 public class Hooks {
+
+
+    private RamiLeviSteps stepDefinitions;
+
+    public Hooks(RamiLeviSteps stepDefinitions) {
+        this.stepDefinitions = stepDefinitions;
+    }
+
     @BeforeAll
     public static void beforeAll(){
         System.out.println("Before All");
@@ -11,10 +20,21 @@ public class Hooks {
     @Before
     public void before(Scenario scenario){
         System.out.println("*** Before " + scenario.getName());
+        loginToRamiLevi();
     }
+
+
+    private void loginToRamiLevi() {
+        stepDefinitions.iHaveNavigatedToRamiLevi();
+        stepDefinitions.onRamiLeviHomePageIClickLogin();
+        stepDefinitions.iLoginWithUserAndPassword("salehzarora.z.9@gmail.com", "saleh12345");
+        stepDefinitions.onRamiLeviHomePage("ס2");
+    }
+
 
     @BeforeStep
     public void beforeStep(){
+
 
     }
     @After
