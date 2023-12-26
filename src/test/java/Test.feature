@@ -6,13 +6,13 @@ Feature: Rami Levi feature
     Then On Rami Levi home page - 'naseem'
 
   Scenario: SearchBar
-    Given I have navigated to Rami Levi home page
+    Given I have navigated to Rami Levi
     When  I input with in search 'bamba'
     And I click on search button
     Then I should be navigated to the correct page
 
   Scenario: Fast Buying
-      Given I have navigated to Rami Levi home pagea
+      Given I have navigated to Rami Levi
       When I click on Fast Buying button
       And I enter input 'bamba'
       And I click on continue
@@ -24,7 +24,7 @@ Feature: Rami Levi feature
      Then i should view the address
 
   Scenario: AllDiscounts NavigatePage
-    Given I have navigated to Rami Levi home page
+    Given I have navigated to Rami Levi
     When I Click AllDiscounts Button
     Then Validate that I navigate to the correct page
 
@@ -32,5 +32,5 @@ Feature: Rami Levi feature
     Given I have navigated to Rami Levi
     When Adding one item
     And Removing Item from the cart
-    Then  check that the cart doesn't contain it
+    Then validate cart is empty
 

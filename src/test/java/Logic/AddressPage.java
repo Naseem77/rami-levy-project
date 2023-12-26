@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AddressEdit extends PageBase {
+public class AddressPage extends PageBase {
 
 
 
@@ -39,7 +39,7 @@ public class AddressEdit extends PageBase {
     private WebElement clickStreet;
     private WebElement addressExists;
 
-    public AddressEdit(WebDriver driver)
+    public AddressPage(WebDriver driver)
     {
         super(driver);
 

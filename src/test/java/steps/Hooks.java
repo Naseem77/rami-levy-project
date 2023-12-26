@@ -1,14 +1,13 @@
 package steps;
 
 import io.cucumber.java.*;
-import steps.RamiLeviSteps;
 
 public class Hooks {
 
 
-    private RamiLeviSteps stepDefinitions;
+    private LoginSteps stepDefinitions;
 
-    public Hooks(RamiLeviSteps stepDefinitions) {
+    public Hooks(LoginSteps stepDefinitions) {
         this.stepDefinitions = stepDefinitions;
     }
 
@@ -27,8 +26,8 @@ public class Hooks {
     private void loginToRamiLevi() {
         stepDefinitions.iHaveNavigatedToRamiLevi();
         stepDefinitions.onRamiLeviHomePageIClickLogin();
-        stepDefinitions.iLoginWithUserAndPassword("naseem-ali@hotmail.com", "naseem12345");
-        stepDefinitions.onRamiLeviHomePage("naseem");
+        stepDefinitions.iLoginWithUserAndPassword("salehzarora.z.007@gmail.com", "saleh12345");
+        stepDefinitions.onRamiLeviHomePage("סלאח");
     }
 
 

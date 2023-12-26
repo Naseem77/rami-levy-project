@@ -2,7 +2,7 @@ package steps;
 
 import Infra.BrowserWrapper;
 import Infra.TestContext;
-import Logic.AllDiscountsComponent;
+import Logic.AllDiscountsPage;
 import Logic.RamiLeviHomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,28 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class Discount {
-
+public class DiscountSteps {
     private TestContext context;
 
-
-    public Discount(TestContext context) {
+    public DiscountSteps(TestContext context) {
         this.context = context;
-    }
-
-    @Given("i have navigated the home page")
-    public void IHaveNavigatedTheHomePage(){
-        BrowserWrapper browserWrapper = new BrowserWrapper();
-        context.put("BrowserWrapper", browserWrapper);
-        RamiLeviHomePage ramiLeviHomePage = browserWrapper.createPage(RamiLeviHomePage.class, "http://rami-levy.co.il");
-
     }
 
     @When("I Click AllDiscounts Button")
     public void iClickAllDiscountsButton() {
         BrowserWrapper browserWrapper = context.get("BrowserWrapper");
-        AllDiscountsComponent alldisconts = new AllDiscountsComponent(browserWrapper.GetDriver());
-        alldisconts.ClickAllDiscountButton();
+        AllDiscountsPage allDiscountsPage = browserWrapper.createPage(AllDiscountsPage.class);
+        allDiscountsPage.ClickAllDiscountButton();
         Set<String> windowHandles = browserWrapper.GetDriver().getWindowHandles();
         List<String> windowHandlesList = new ArrayList<>(windowHandles);
         String secondTab = windowHandlesList.get(1);

@@ -2,28 +2,17 @@ package steps;
 
 import Infra.BrowserWrapper;
 import Infra.TestContext;
-import io.cucumber.java.en.And;
-import org.junit.Assert;
 import Logic.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RamiLeviSteps {
+public class LoginSteps {
     private TestContext context;
 
-
-    public RamiLeviSteps(TestContext context) {
+    public LoginSteps(TestContext context) {
         this.context = context;
     }
 
