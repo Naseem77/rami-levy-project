@@ -2,10 +2,7 @@ package steps;
 
 import Infra.BrowserWrapper;
 import Infra.TestContext;
-import Logic.AddressPage;
-import Logic.ItemComponent;
-import Logic.LoginPage;
-import Logic.SignUp;
+import Logic.*;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
@@ -22,9 +19,11 @@ public class SignUpSteps {
     @When("On login popup - I click signup")
     public void OnloginPopupIClickSignup() throws InterruptedException {
         BrowserWrapper browserWrapper = context.get("BrowserWrapper");
-        SignUp signUp = browserWrapper.getCurrentPage();
+        SignUp signUp = browserWrapper.createPage(SignUp.class);
+//        BrowserWrapper browserWrapper = context.get("BrowserWrapper");
+//        SignUp signUp = browserWrapper.getCurrentPage();
         signUp.ClickSignup();
-        browserWrapper.createPage(SignUp.class);
+        //  browserWrapper.createPage(SignUp.class);
 
     }
 
@@ -32,14 +31,15 @@ public class SignUpSteps {
     public void onSignupPopupFillInformation() throws Exception{
         BrowserWrapper browserWrapper = context.get("BrowserWrapper");
         SignUp signUpPage = browserWrapper.createPage(SignUp.class);
-        signUpPage.signup("Nur","Naif","noorabu@gmail.com", "test1911","211805106");
+        signUpPage.signup("sam","same","sam12113@gmail.com", "test1911","211805106");
 
     }
 
     @And("email popup appers")
     public void emailPopupAppers() {
         BrowserWrapper browserWrapper = context.get("BrowserWrapper");
-        Assertions.assertTrue(browserWrapper.GetDriver().findElement(By.xpath("//*[@id=\"__BVID__319___BV_modal_body_\"]/div")).isDisplayed());
+        SignUp signUpPage = browserWrapper.createPage(SignUp.class);
+        Assertions.assertTrue(signUpPage.PopUPIsDisabled());
 
 
     }

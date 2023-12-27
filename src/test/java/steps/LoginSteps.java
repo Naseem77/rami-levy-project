@@ -11,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginSteps {
     private TestContext context;
+    private LoginSteps stepDefinitions;
+
     public LoginSteps(TestContext context) {
         this.context = context;
     }
@@ -56,4 +58,24 @@ public class LoginSteps {
         assertEquals(name, currentText);
     }
 
+    @Given("I have logged in")
+    public void iHaveLoggedIn() throws InterruptedException {
+
+        iHaveNavigatedToRamiLevi();
+        onRamiLeviHomePageIClickLogin();
+        iLoginWithUserAndPassword("salehzarora.z.9@gmail.com", "saleh12345");
+        onRamiLeviHomePage("ס2");
+    }
+
+
+
 }
+
+
+
+
+
+
+
+
+

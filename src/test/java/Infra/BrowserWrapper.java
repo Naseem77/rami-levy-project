@@ -13,8 +13,8 @@ public class BrowserWrapper {
     private WebDriver driver;
     public BrowserWrapper() {
         System.setProperty("webdriver.chrome.driver", webDriverPath);
-         driver = new ChromeDriver();
-         driver.manage().window().maximize();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
     }
 
     public WebDriver getDriver() {

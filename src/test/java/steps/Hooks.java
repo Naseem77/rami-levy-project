@@ -6,10 +6,9 @@ import io.cucumber.java.*;
 public class Hooks {
 
 
-    private LoginSteps stepDefinitions;
 
-    public Hooks(LoginSteps stepDefinitions) {
-        this.stepDefinitions = stepDefinitions;
+    public Hooks() {
+
     }
 
     @BeforeAll
@@ -20,15 +19,8 @@ public class Hooks {
     @Before
     public void before(Scenario scenario) throws InterruptedException {
         System.out.println("*** Before " + scenario.getName());
-            loginToRamiLevi();
     }
 
-   private void loginToRamiLevi() throws InterruptedException {
-        stepDefinitions.iHaveNavigatedToRamiLevi();
-        stepDefinitions.onRamiLeviHomePageIClickLogin();
-        stepDefinitions.iLoginWithUserAndPassword("saeedyasen41@gmail.com", "Aש123123");
-        stepDefinitions.onRamiLeviHomePage("סעיד");
-    }
 
     @BeforeStep
     public void beforeStep(){

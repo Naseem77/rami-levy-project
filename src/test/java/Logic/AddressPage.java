@@ -8,7 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
+
 
 public class AddressPage extends PageBase {
 
@@ -41,7 +41,7 @@ public class AddressPage extends PageBase {
 
 
 
-
+    private WebElement cityInputElement;
     private WebElement profileb;
     private WebElement addressb;
     private WebElement addaddressb;
@@ -59,12 +59,14 @@ public class AddressPage extends PageBase {
     public AddressPage(WebDriver driver)
     {
         super(driver);
+        this.cityInputElement = driver.findElement(cityInput);
+        this.addressExists = driver.findElement(By.xpath(ADDRESSES_IS_EMPTY));
 
     }
 
     public void FillAddress(String city , String street ,String house , String floor , String apartment)
     {
-        driver.findElement(cityInput).sendKeys(city);
+       this.cityInputElement.sendKeys(city);
 
         WebDriverWait wait = new WebDriverWait(driver,10);
         this.clickCity = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(CLICK_CITY)));
@@ -132,16 +134,7 @@ public class AddressPage extends PageBase {
     }
     public boolean CheckIftheAdressersIsEmpty()
     {
-
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        this.addressExists = driver.findElement(By.xpath(ADDRESSES_IS_EMPTY));
-
-
-
         return this.addressExists.isDisplayed();
-
-
-
     }
     public void addressHoverAndRemove()
     {
