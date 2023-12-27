@@ -41,7 +41,7 @@ public class ItemComponent extends PageBase {
     }
     public void RemoveItem(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        this.HoverOnItemToRemove = this.driver.findElement(By.xpath("//*[@id=\"market\"]/ul/li[1]"));
+        this.HoverOnItemToRemove = this.driver.findElement(By.xpath(HOVER_ON_ITEM_TO_REMOVE));
         Actions actions = new Actions(this.driver);
         actions.moveToElement(HoverOnItemToRemove).perform();
         this.Removeitem = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(REMOVEITEM)));
