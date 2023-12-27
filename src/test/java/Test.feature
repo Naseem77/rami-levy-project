@@ -39,3 +39,11 @@ Feature: Rami Levi feature
     And Removing Item from the cart
     Then validate cart is empty
 
+    Scenario: sign up
+      Given I have navigated to Rami Levi
+      And On Rami Levi home page - I click login
+      When On login popup - I click signup
+      Then On Signup popup fill information
+      And email popup appers
+
+
