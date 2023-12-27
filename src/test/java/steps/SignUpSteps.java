@@ -24,7 +24,7 @@ public class SignUpSteps {
         BrowserWrapper browserWrapper = context.get("BrowserWrapper");
         SignUp signUp = browserWrapper.getCurrentPage();
         signUp.ClickSignup();
-        browserWrapper.createPage(SignUp.class);
+      //  browserWrapper.createPage(SignUp.class);
 
     }
 

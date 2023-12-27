@@ -27,7 +27,6 @@ public class SignUp extends PageBase {
     public void ClickSignup() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         this.signup = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(SIGNUP_BUTTON)));
-        TimeUnit.MILLISECONDS.sleep(100);
         signup.click();
 
     }
@@ -41,7 +40,6 @@ public class SignUp extends PageBase {
         driver.findElement(id).sendKeys(userId);
         WebDriverWait wait = new WebDriverWait(driver, 10);
         this.submit = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(SUBMIT_BUTTON)));
-        TimeUnit.MILLISECONDS.sleep(100);
         submit.click();
     }
 }

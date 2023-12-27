@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class AllDiscountsPage extends PageBase {
-    public static final String ALLDISCOUNTSBUTTON="//h2[contains(text(), 'לכל ההטבות')]/ancestor::a[1]";
+    public  final String ALLDISCOUNTSBUTTON="//h2[contains(text(), 'לכל ההטבות')]/ancestor::a[1]";
     WebElement AllDiscount;
 
     public AllDiscountsPage(WebDriver driver) {

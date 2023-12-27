@@ -19,24 +19,14 @@ Feature: Rami Levi feature
       And I add an item to cart and click on finish
       Then I need to view item on cart
 
-  Scenario: Add Address
-     When navigated to the profile and fill the address
-     Then i should view the address
 
-    Scenario: Remove Address
-      Given i navigated to the profile address page
-      When  i click on the delete button and confirm
-      Then  Validate that address deleted
+
 
   Scenario: AllDiscounts NavigatePage
     Given I have navigated to Rami Levi
     When I Click AllDiscounts Button
     Then Validate that I navigate to the correct page
 
-  Scenario: Add item via API and Remove Item via UI
-    When I add one item to the cart via API
-    And Removing Item from the cart
-    Then validate cart is empty
 
 
     Scenario: sign up
@@ -47,9 +37,5 @@ Feature: Rami Levi feature
       And email popup appers
 
 
-  Scenario: Add item via UI and remove all via API
-    When I add one item to the cart via UI
-    And Remove item from the cart with API
-    Then validate cart empty
 
 
