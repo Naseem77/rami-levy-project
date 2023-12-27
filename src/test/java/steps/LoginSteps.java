@@ -61,15 +61,15 @@ public class LoginSteps {
     @Given("I have logged in")
     public void iHaveLoggedIn() throws InterruptedException {
 
-          iHaveNavigatedToRamiLevi();
-            onRamiLeviHomePageIClickLogin();
-           iLoginWithUserAndPassword("salehzarora.z.007@gmail.com", "saleh12345");
-           onRamiLeviHomePage("סאלח");
-        }
-
-
-
+        iHaveNavigatedToRamiLevi();
+        onRamiLeviHomePageIClickLogin();
+        iLoginWithUserAndPassword("salehzarora.z.9@gmail.com", "saleh12345");
+        onRamiLeviHomePage("ס2");
     }
+
+
+
+}
 
 
 
