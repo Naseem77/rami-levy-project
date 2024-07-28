@@ -4,7 +4,7 @@ Complete E2E test plan & automated sanity for https://www.rami-levy.co.il/ websi
 
 ## It includes:
 
-- Automation tests with playwright
+- Automation tests with selenium
 - infrastructure built from scratch
 - UI tests
 - Reporting with allure
